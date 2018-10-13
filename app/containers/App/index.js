@@ -16,6 +16,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import CountriesPage from 'containers/Countries/Loadable';
 import CountryPage from 'containers/Country/Loadable';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/countries" component={CountriesPage} />
         <Route path="/country/:country_id" component={CountryPage} />
         <Route component={NotFoundPage} />
       </Switch>
