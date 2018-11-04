@@ -18,6 +18,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import CountriesPage from 'containers/Countries/Loadable';
 import CountryPage from 'containers/Country/Loadable';
+import ProfilePage from 'containers/Profile/Loadable';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/countries" component={CountriesPage} />
         <Route path="/country/:country_id" component={CountryPage} />
+        <Route path="/profile" component={ProfilePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
