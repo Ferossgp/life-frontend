@@ -2,33 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
-import { 
+import messages from './messages';
+
+import {
   makeSelectCountries,
-  makeSelectError, 
-  makeSelectFetching, 
-  makeSelectTotalCount
+  makeSelectError,
+  makeSelectFetching,
+  makeSelectTotalCount,
 } from './selectors';
 import { fetchCountries } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
+import {
+  Grid,
+  GridWrap,
+  GridItemBg,
+  GridItemImg,
+  GridItemWrap,
+  GridItemTitle,
+  GridItemId,
+  GridItem,
+  PageHeading,
+} from './components';
 
 /* eslint-disable react/prefer-stateless-function */
 class Countries extends React.PureComponent {
-  
-  componentDidMount(){
+  componentDidMount() {
     this.props.onFetchCountries();
   }
 
@@ -38,15 +47,34 @@ class Countries extends React.PureComponent {
         <Helmet>
           <title>List of countries</title>
         </Helmet>
-        <h1>
-          <FormattedMessage {...messages.header}/>
-        </h1>
-        
-        <div>
-          {this.props.countries && this.props.countries.map((c) => {
-            return (<Link to={`/country/${c.id}`} key={c.id}>{c.name}</Link>);
-          })}
-        </div>
+
+        <GridWrap>
+          <PageHeading>
+            <FormattedMessage {...messages.header} />
+          </PageHeading>
+          <Grid>
+            {this.props.countries &&
+              this.props.countries.map(c => {
+                const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+                const baseAngle = Math.random() / 10;
+                const rightPart = `${(1 - baseAngle) *
+                  plusOrMinus}, ${baseAngle}`;
+                const leftPart = `${baseAngle}, ${(1 - baseAngle) *
+                  (plusOrMinus * -1)}`;
+                const transform = `matrix(${rightPart}, ${leftPart}, 0, 0)`;
+                return (
+                  <GridItem key={c.id} to={`/country/${c.id}`}>
+                    <GridItemBg />
+                    <GridItemWrap style={{ transform }}>
+                      <GridItemImg src={c.image} alt={c.name} />
+                    </GridItemWrap>
+                    <GridItemTitle>{c.name}</GridItemTitle>
+                    <GridItemId>{c.id.substring(11, 13)}</GridItemId>
+                  </GridItem>
+                );
+              })}
+          </Grid>
+        </GridWrap>
       </div>
     );
   }
@@ -80,7 +108,10 @@ export function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 const withReducer = injectReducer({ key: 'countries', reducer });
 const withSaga = injectSaga({ key: 'countries', saga });
