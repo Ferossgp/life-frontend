@@ -1,4 +1,5 @@
 # Life frontend
+[![Build Status](https://travis-ci.org/Ferossgp/life-frontend.svg?branch=master)](https://travis-ci.org/Ferossgp/life-frontend)
 
 This project will be frontend for some API which provides information about life
 quality in different countries and cities. 
