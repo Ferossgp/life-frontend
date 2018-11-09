@@ -1,11 +1,5 @@
-import {
-  takeLatest,
-  call,
-  put
-} from 'redux-saga/effects';
-import {
-  FETCH_COUNTRIES
-} from 'containers/Countries/constants';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { FETCH_COUNTRIES } from 'containers/Countries/constants';
 import {
   countriesLoaded,
   countriesLoadingError,
@@ -15,8 +9,8 @@ import request from 'utils/request';
 
 const API_DOMAIN = 'https://api.teleport.org/api';
 
-export function* getCountries(params) {
-  let apiEndpoint = `${API_DOMAIN}/countries`; // Add filters
+export function* getCountries() {
+  const apiEndpoint = `${API_DOMAIN}/countries`; // Add filters
 
   try {
     const repos = yield call(request, apiEndpoint);

@@ -1,5 +1,5 @@
 /**
- * Asynchronously loads the component for CountryPage
+ * Asynchronously loads the component for LifeExpectancy
  */
 import Loadable from 'react-loadable';
 
