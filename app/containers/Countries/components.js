@@ -7,18 +7,6 @@ export const PageHeading = styled.h1`
   color: #ec1752;
 `;
 
-export const GridWrap = styled.div`
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  &::before,
-  &::after {
-    display: table;
-    content: '';
-    clear: both;
-  }
-`;
-
 export const Grid = styled.div`
   position: relative;
   display: flex;

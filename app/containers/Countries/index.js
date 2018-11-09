@@ -25,7 +25,6 @@ import saga from './saga';
 
 import {
   Grid,
-  GridWrap,
   GridItemBg,
   GridItemImg,
   GridItemWrap,
@@ -34,6 +33,7 @@ import {
   GridItem,
   PageHeading,
 } from './components';
+import { MainLayout } from '../../components/Layout';
 
 /* eslint-disable react/prefer-stateless-function */
 class Countries extends React.PureComponent {
@@ -48,7 +48,7 @@ class Countries extends React.PureComponent {
           <title>List of countries</title>
         </Helmet>
 
-        <GridWrap>
+        <MainLayout>
           <PageHeading>
             <FormattedMessage {...messages.header} />
           </PageHeading>
@@ -74,7 +74,7 @@ class Countries extends React.PureComponent {
                 );
               })}
           </Grid>
-        </GridWrap>
+        </MainLayout>
       </div>
     );
   }

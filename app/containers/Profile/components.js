@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
   background: #f1f1f1;
 `;
 
