@@ -12,7 +12,6 @@ import reducer from './reducer';
 
 class Profile extends React.Component {
   onSubmit = data => {
-    console.log(data);
     this.props.history.push('/expectancy');
     this.props.formSubmit(data);
   };

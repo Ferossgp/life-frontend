@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const PageHeading = styled.h1`
   margin-bottom: 50px;
@@ -14,7 +13,7 @@ export const Grid = styled.div`
   justify-content: space-between;
 `;
 
-export const GridItem = styled(Link)`
+export const GridItem = styled.a`
   width: 260px;
   height: 360px;
   position: relative;

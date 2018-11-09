@@ -2,6 +2,7 @@ import {
   FETCH_COUNTRIES,
   COUNTRIES_LOADED,
   LOAD_COUNTRIES_ERROR,
+  SELECT_COUNTRY,
 } from 'containers/Countries/constants';
 import { Object } from 'core-js';
 
@@ -36,6 +37,13 @@ export function countriesLoaded(payload) {
     type: COUNTRIES_LOADED,
     totalCount: count,
     countries,
+  };
+}
+
+export function selectCountry(country) {
+  return {
+    type: SELECT_COUNTRY,
+    country,
   };
 }
 

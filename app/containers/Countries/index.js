@@ -19,7 +19,7 @@ import {
   makeSelectFetching,
   makeSelectTotalCount,
 } from './selectors';
-import { fetchCountries } from './actions';
+import { fetchCountries, selectCountry } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -40,6 +40,11 @@ class Countries extends React.PureComponent {
   componentDidMount() {
     this.props.onFetchCountries();
   }
+  onSelect = (evt, data) => {
+    evt.preventDefault();
+    this.props.selectCountry(data);
+    this.props.history.push('/profile');
+  };
 
   render() {
     return (
@@ -63,7 +68,11 @@ class Countries extends React.PureComponent {
                   (plusOrMinus * -1)}`;
                 const transform = `matrix(${rightPart}, ${leftPart}, 0, 0)`;
                 return (
-                  <GridItem key={c.id} to={`/country/${c.id}`}>
+                  <GridItem
+                    key={c.id}
+                    href="#"
+                    onClick={evt => this.onSelect(evt, c)}
+                  >
                     <GridItemBg />
                     <GridItemWrap style={{ transform }}>
                       <GridItemImg src={c.image} alt={c.name} />
@@ -102,6 +111,9 @@ const mapStateToProps = createStructuredSelector({
 
 export function mapDispatchToProps(dispatch) {
   return {
+    selectCountry: x => {
+      dispatch(selectCountry(x));
+    },
     onFetchCountries: () => {
       dispatch(fetchCountries());
     },
