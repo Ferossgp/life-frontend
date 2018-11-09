@@ -7,7 +7,7 @@ import {
 export function fetchCountry(id) {
   return {
     type: FETCH_COUNTRY,
-    id
+    id,
   };
 }
 

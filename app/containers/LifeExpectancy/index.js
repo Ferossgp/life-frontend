@@ -39,8 +39,8 @@ class ProfileGraphs extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     console.log(nextProps.selectedCountry);
     if (
-      this.props.userProfile != nextProps.userProfile ||
-      this.props.selectedCountry != nextProps.selectedCountry
+      this.props.userProfile !== nextProps.userProfile ||
+      this.props.selectedCountry !== nextProps.selectedCountry
     ) {
       const profile = {
         ...this.props.userProfile,

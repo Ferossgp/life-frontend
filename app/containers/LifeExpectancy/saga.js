@@ -17,8 +17,8 @@ const API_DOMAIN = 'http://api.population.io/1.0';
 
 const getAge = user => {
   const dateNow = new Date();
-  let months = dateNow.getMonth() + 1 - parseInt(user.month);
-  let years = dateNow.getFullYear() - parseInt(user.year);
+  let months = dateNow.getMonth() + 1 - parseInt(user.month, 10);
+  let years = dateNow.getFullYear() - parseInt(user.year, 10);
   years = months > 0 ? years : years - 1;
   months = months > 0 ? months : -months;
   return `${years}y${months}m`;

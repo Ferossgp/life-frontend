@@ -79,6 +79,8 @@ class C3Chart extends React.Component {
 
 C3Chart.displayName = 'C3Chart';
 
+/* eslint-disable react/no-unused-prop-types */
+
 C3Chart.propTypes = {
   data: PropTypes.object.isRequired,
   size: PropTypes.object,

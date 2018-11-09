@@ -1,9 +1,5 @@
-
 import { fromJS } from 'immutable';
-import {
-  COUNTRY_LOADED,
-  LOAD_COUNTRY_ERROR,
-} from './constants';
+import { COUNTRY_LOADED, LOAD_COUNTRY_ERROR } from './constants';
 
 const initialState = fromJS({
   fetching: true,
@@ -14,13 +10,9 @@ const initialState = fromJS({
 function countryReducer(state = initialState, action) {
   switch (action.type) {
     case COUNTRY_LOADED:
-      return state
-        .set('fetching', false)
-        .set('country', action.country);
+      return state.set('fetching', false).set('country', action.country);
     case LOAD_COUNTRY_ERROR:
-      return state
-        .set('fetching', false)
-        .set('error', true);
+      return state.set('fetching', false).set('error', true);
     default:
       return state;
   }
