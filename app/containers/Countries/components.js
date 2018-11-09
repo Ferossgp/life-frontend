@@ -53,7 +53,6 @@ export const GridItemTitle = styled.h3`
   left: 0;
   top: 0;
   margin: 0 0 0 -0.25rem;
-  -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   transform-origin: 0 50%;
